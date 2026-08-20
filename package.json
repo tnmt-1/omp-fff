@@ -1,0 +1,55 @@
+{
+  "name": "omp-fff",
+  "version": "0.1.0",
+  "description": "oh-my-pi extension: FFF-powered fuzzy file and content search (ffgrep/fffind). Port of @ff-labs/pi-fff, omp-only.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "omp",
+    "oh-my-pi",
+    "extension",
+    "fff",
+    "search",
+    "grep",
+    "fuzzy-search",
+    "ai-agent"
+  ],
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "omp": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  },
+  "dependencies": {
+    "@ff-labs/fff-bun": "0.10.5"
+  },
+  "peerDependencies": {
+    "@oh-my-pi/pi-coding-agent": "*",
+    "@oh-my-pi/pi-tui": "*",
+    "@sinclair/typebox": "*"
+  },
+  "peerDependenciesMeta": {
+    "@oh-my-pi/pi-coding-agent": {
+      "optional": true
+    },
+    "@oh-my-pi/pi-tui": {
+      "optional": true
+    },
+    "@sinclair/typebox": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@oh-my-pi/omptype": "17.3.8",
+    "@oh-my-pi/pi-coding-agent": "17.3.8",
+    "@oh-my-pi/pi-tui": "17.3.8",
+    "@types/bun": "^1.3.8",
+    "typescript": "^5.8.0"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  }
+}
