@@ -33,38 +33,17 @@ Key advantages over the built-in tools: no `fd`/`rg` subprocess per call, pre-in
 
 Requirements: oh-my-pi 17.x.
 
-This package is not published to npm; install it from a local checkout:
+### Via the omp plugin manager (recommended)
 
-1. Add the dependency to `~/.omp/plugins/package.json`:
+```bash
+omp plugin install git:github.com/tnmt-1/omp-fff
+```
 
-   ```json
-   {
-     "dependencies": {
-       "omp-fff": "file:/path/to/omp-fff"
-     }
-   }
-   ```
+Pin to a release tag:
 
-2. Install and register:
-
-   ```bash
-   cd ~/.omp/plugins && bun install
-   ```
-
-   then add the plugin entry to `~/.omp/plugins/omp-plugins.lock.json`:
-
-   ```json
-   {
-     "plugins": {
-       "omp-fff": {
-         "version": "0.1.0",
-         "enabledFeatures": null,
-         "enabled": true
-       }
-     },
-     "settings": {}
-   }
-   ```
+```bash
+omp plugin install git:github.com/tnmt-1/omp-fff@v0.1.0
+```
 
 Restart omp. Verify with `omp plugin list` and the `/fff-health` command.
 
@@ -78,6 +57,37 @@ extensions:
 ```
 
 or run with `omp -e /path/to/omp-fff/src/index.ts`.
+
+### Local development
+
+Clone the repo, then point the plugins dependency at it:
+
+```json
+{
+  "dependencies": {
+    "omp-fff": "file:/path/to/omp-fff"
+  }
+}
+```
+
+```bash
+cd ~/.omp/plugins && bun install
+```
+
+and add the entry to `~/.omp/plugins/omp-plugins.lock.json`:
+
+```json
+{
+  "plugins": {
+    "omp-fff": {
+      "version": "0.1.0",
+      "enabledFeatures": null,
+      "enabled": true
+    }
+  },
+  "settings": {}
+}
+```
 
 ## Tools
 
